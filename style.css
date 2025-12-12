@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+
+header {
+    background: #007a3d;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+header img {
+    width: 150px;
+    margin: 0 auto 10px auto !important;
+    display: block !important;
+}
+
+
+header h1 {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+
+
+nav {
+    background: #006b36;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #00994e;
+    border-radius: 5px;
+}
+
+
+
+main {
+    width: 90%;
+    margin: auto;
+    padding: 25px 0;
+}
+
+.conteudo {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-left: 6px solid #007a3d;
+    padding-left: 10px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #007a3d;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+
+
+.card {
+    background: white;
+    padding: 15px;
+    border-left: 5px solid #007a3d;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+
+.imagens-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.imagem-bloco {
+    width: 300px;
+    text-align: center;
+}
+
+.imagem-bloco img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.imagem-bloco figcaption {
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+
+
+#projeto-combinacional .card img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+
+footer {
+    text-align: center;
+    background: #007a3d;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+
+#chat {
+    margin-top: 50px;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+.chat-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #007a3d;
+}
+
+.chat-window {
+    background: white;
+    padding: 10px;
+    height: 240px;
+    overflow-y: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+.user-msg, .bot-msg {
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.user-msg {
+    background: #0066ff;
+    color: white;
+    margin-left: auto;
+}
+
+.bot-msg {
+    background: #dcdcdc;
+    color: black;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #aaaaaa;
+}
+
+.chat-input button {
+    padding: 10px 18px;
+    background: #007a3d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #00994e;
+}
+
+
+#circuitos-aritmeticos {
+    margin: 40px 0;
+}
+
+#circuitos-aritmeticos h2 {
+    margin-bottom: 20px;
+}
+
+#circuitos-aritmeticos h3 {
+    margin-top: 25px;
+    color: #007a3d;
+}

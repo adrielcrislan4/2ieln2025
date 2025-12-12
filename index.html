@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guia Laboratorial Do G1 2º IELN 2025</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo" role="banner">
+    <div class="titulo">
+      <h1>Projeto: Técnicas Digitais — Grupo 1 (G1)</h1>
+      <p>2º IELN - G1 - Laboratório de Técnicas Digitais</p>
+    </div>
+
+    <div class="creditos" aria-label="Informações do projeto">
+      <p><strong>Orientador:</strong> Prof. Edson Barbosa</p>
+      <p><strong>Contato:</strong> adriel.neri078@academico.ifs.edu.br</p>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+      <h2 id="hero-title">Práticas laboratoriais - estudo prático e simulações</h2>
+      <p>
+        Este site reúne todo o material produzido pelo <strong>Grupo 1 (G1)</strong> durante as aulas de
+        <em>Laboratório de Técnicas Digitais</em>. Contém teoria aprofundada, explicações passo a passo,
+        imagens do kit didático, captura da simulação no TinkerCAD e um chat simples para dúvidas rápidas.
+        <br>
+       
+      </p>
+    </div>
+
+    <div class="hero-logo" aria-hidden="false">
+      <img src="Logotipo_IFET.svg.png" alt="Logotipo do Instituto Federal">
+    </div>
+  </section>
+
+  <main>
+
+    <section class="conteudo" aria-labelledby="sobre-title">
+      <h2 id="sobre-title">Sobre o site</h2>
+
+      <p>
+        O objetivo deste projeto é explicar e demonstrar a construção de um <strong>decodificador para display de 7
+        segmentos</strong> utilizando portas lógicas discretas e a ferramenta de mapa de Karnaugh para simplificação
+        das expressões booleanas. O trabalho foi realizado em etapas: estudo teórico, elaboração dos mapas de Karnaugh,
+        simulação no TinkerCAD e experimentação com o kit didático do laboratório.
+      </p>
+
+      <p>
+        Nas sessões iniciais estudamos o funcionamento físico dos displays de 7 segmentos — como cada segmento
+        (rotulado de a até g) é acionado para formar os numerais de 0 a F — e a diferença entre displays de
+        <em>cátodo comum</em> e <em>ânodo comum</em>. Em seguida, coletamos as tabelas verdade (para BCD → segmentos)
+        e aplicamos mapas de Karnaugh individualmente para cada segmento, produzindo expressões booleanas otimizadas.
+      </p>
+
+      <p>
+         Além do decodificador, o grupo realizou também:
+        <ul>
+          <li>Experimentos práticos com <strong>Comparadores Digitais (1 bit e 4 bits)</strong> usando portas TTL e o CI 74LS85 fora circuitos-aritmeticos como meio subtrator e meio somador;</li>
+          <li>Uma atividade de projetos de circuitos combinacionais com <strong>tabela verdade, simulações</strong> e <strong>mapas de Karnaugh</strong>
+        </ul>
+        As seções adicionadas mais adiante explicam detalhadamente ambos os conjuntos de atividades e disponibilizam locais para inserir as imagens do relatório.
+      </p>
+    </section>
+
+    <section class="teoria conteudo" aria-labelledby="teoria-title">
+      <h2 id="teoria-title">Teoria detalhada</h2>
+
+      <h3>Display de 7 segmentos — anatomia e pinagem</h3>
+      <p>
+        O display de 7 segmentos é formado por sete LEDs em formato de barras (segmentos a–g) e, em muitos modelos,
+        um ponto decimal (DP). Existem dois tipos básicos: <em>cátodo comum</em> (todos os cátodos dos LEDs conectados)
+        e <em>ânodo comum</em> (todos os ânodos conectados). A escolha do tipo determina como os drivers/decodificadores
+        deverão acionar os segmentos (saída ativa HIGH ou LOW).
+      </p>
+
+      <p>
+        <strong>Pinagem</strong> varia por modelo; no material do curso usamos exemplares compatíveis com as simulações do TinkerCAD.
+        Consulte as etiquetas do componente no kit para conectar corretamente os pinos comuns (Vcc ou GND conforme o tipo).
+      </p>
+
+      <h3>Mapas de Karnaugh e simplificação</h3>
+      <p>
+        Para cada segmento geramos um mapa de Karnaugh 4x4 (entradas A,B,C,D — código BCD) e agrupamos segmentos
+        adjacentes para encontrar coberturas ótimas. Nos mapas priorizamos grupos de 8, 4 e 2 quando possível,
+        reduzindo termos e gerando expressões com menos literais.
+      </p>
+
+      <h3>Portas lógicas utilizadas</h3>
+      <p>
+        As portas básicas usadas na implementação são:
+      </p>
+      <ul>
+        <li><strong>AND</strong> — combinação de condições (produto lógico)</li>
+        <li><strong>OR</strong> — soma lógica de termos</li>
+        <li><strong>NOT</strong> — inversão de sinal</li>
+      </ul>
+
+      <p>
+        Ademais, para os <strong>comparadores digitais</strong> (atividade prática) usamos TTL da família 74LS:
+        NAND (74LS00), Inversores (74LS04 ou 74LS14) e o comparador de magnitude 74LS85 para as comparações de 4 bits.
+      </p>
+    </section>
+
+    
+    
+    </section>
+
+   
+
+    <section id="comparadores" class="conteudo" aria-labelledby="comparadores-title">
+      <h2 id="comparadores-title">Relatório – Comparadores Digitais (Experiências 22 a 28)</h2>
+
+      <div class="card">
+        <h3>1. Objetivo</h3>
+        <p>Estudar e verificar o funcionamento de comparadores digitais de magnitude, tanto em nível de 1 bit (com portas básicas)
+           quanto em comparação de palavras de 4 bits usando o CI 74LS85.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Materiais</h3>
+        <ul>
+          <li>Módulo MPLD10-EX (Zilocchi)</li>
+          <li>74LS00 (NAND)</li>
+          <li>74LS04 / 74LS14 (Inversores)</li>
+          <li>74LS85 (Comparador de magnitude 4 bits)</li>
+          <li>LEDs indicadores, jumpers, protoboard (quando aplicável)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>3. Desenvolvimento — Parte A: Comparadores de 1 bit</h3>
+        <p>Foram montados e testados os seguintes circuitos básicos com duas entradas (A e B):</p>
+
+        <h4>Exp. 22 — Comparador A &gt; B</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 somente quando A=1 e B=0.<br>
+          <strong>Implementação:</strong> S = A · ¬B (pode ser implementado com NAND + inversores ou diretamente com portas AND + NOT dependendo do kit).<br>
+          <strong>Resultado observado:</strong> LED indicador acendeu apenas na combinação A=1 / B=0, conforme previsto.
+        </p>
+
+        <h4>Exp. 23 — Comparador A ≥ B</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 se A>B ou A=B;<br>
+          <strong>Implementação e observações:</strong> circuito montado e tabelas preenchidas manualmente; LED permaneceu apagado apenas em A=0,B=1.
+        </p>
+
+        <h4>Exp. 24 — Comparador A &lt; B</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 somente quando A=0 e B=1.<br>
+          <strong>Resultado observado:</strong> behavior conforme teoria; LED aceso apenas em 0/1.
+        </p>
+
+        <h4>Exp. 25 — Comparador A ≤ B</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 quando A &lt; B ou A = B.<br>
+          <strong>Observação:</strong> LED apagou apenas em A=1,B=0; nos demais casos permaneceu aceso.
+        </p>
+
+        <h4>Exp. 26 — Desigualdade A ≠ B (XOR)</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 para combinações 0/1 e 1/0; corresponde a uma porta XOR.<br>
+          <strong>Observação prática:</strong> implementado com combinações de NANDs/inversores no módulo e verificado conforme tabela.
+        </p>
+
+        <h4>Exp. 27 — Igualdade A = B (XNOR)</h4>
+        <p>
+          <strong>Lógica:</strong> saída = 1 quando A e B iguais (0/0 ou 1/1); corresponde à função XNOR.<br>
+          <strong>Observação prática:</strong> LED indicador confirmou níveis esperados.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>4. Desenvolvimento — Parte B: Comparador de 4 bits (74LS85)</h3>
+        <p>
+          Utilizou-se o CI 74LS85 para comparar duas palavras de 4 bits: A_3..A_0 e B_3..B_0.
+          O CI fornece três saídas: A&lt;B, A=B e A&gt;B (normalmente indicadas por LEDs L2, L1, L0).
+        </p>
+
+        <p><strong>Configuração prática:</strong></p>
+        <ol>
+          <li>Ligar alimentação adequada ao módulo e aos CIs (observar pinos Vcc e GND no datasheet).</li>
+          <li>Conectar as linhas A3..A0 e B3..B0 aos pontos de entrada do módulo (usar jumpers e chaves se disponível).</li>
+          <li>Adicionar LEDs indicadores nas saídas do 74LS85 com resistores limitadores (~330Ω).</li>
+          <li>Testar combinações extremas (0000 vs 0000; 1111 vs 0000; 0000 vs 1111) e preencher tabela de resultados.</li>
+        </ol>
+
+        <p><strong>Resultados resumidos (exemplos):</strong></p>
+        <ul>
+          <li>15 vs 15 → A=B → LED de igualdade aceso.</li>
+          <li>15 vs 0  → A&gt;B → LED de A&gt;B aceso.</li>
+          <li>0 vs 15  → A&lt;B → LED de A&lt;B aceso.</li>
+        </ul>
+
+        <p><strong>Observações:</strong> o 74LS85 facilita comparação de palavras sem a necessidade de montar redes de portas discretas; no entanto compreender as portas básicas ajuda a entender o comportamento interno do CI.</p>
+      </div>
+
+    </section>
+
+    <section id="circuitos-aritmeticos" class="conteudo">
+    <h2>Circuitos Aritméticos – Meio Somador e Meio Subtrator</h2>
+
+    <div class="card">
+        <p>
+            Nesta parte do estudo foram analisados dois circuitos aritméticos fundamentais apresentados 
+            no módulo Datapool 8810: o <strong>Meio Somador</strong> e o <strong>Meio Subtrator</strong>. 
+            Esses circuitos são essenciais para entender a lógica das operações matemáticas realizadas 
+            dentro dos sistemas digitais e compõem a base das unidades aritméticas e lógicas (ALU).
+        </p>
+    </div>
+
+    <h3>1. Meio Somador (Half Adder)</h3>
+    <div class="card">
+        <p>
+            O meio somador realiza a soma de dois bits de entrada, <strong>A</strong> e <strong>B</strong>,
+            e fornece duas saídas:
+        </p>
+        <ul>
+            <li><strong>S</strong> – Soma (bit menos significativo);</li>
+            <li><strong>C</strong> – Carry, indicando um possível transporte para a próxima posição binária.</li>
+        </ul>
+        <p>As expressões lógicas fornecidas são:</p>
+        <ul>
+            <li><strong>S = A ⊕ B</strong></li>
+            <li><strong>C = A · B</strong></li>
+        </ul>
+        <p>
+            Essas equações evidenciam como o circuito implementa a soma binária de forma combinacional.
+        </p>
+    </div>
+
+    <h3>2. Meio Subtrator (Half Subtractor)</h3>
+    <div class="card">
+        <p>
+            O meio subtrator realiza a subtração entre dois bits, <strong>A</strong> e <strong>B</strong>,
+            produzindo duas saídas:
+        </p>
+        <ul>
+            <li><strong>S</strong> – Diferença entre A e B;</li>
+            <li><strong>C</strong> – Borrow, que indica quando A precisou “pedir emprestado”.</li>
+        </ul>
+        <p>
+            Assim como o meio somador, esse circuito é fundamental para compreender a implementação
+            da subtração binária dentro das arquiteturas digitais.
+        </p>
+    </div>
+
+</section>
+
+
+
+    
+    <section id="projeto-combinacional" class="conteudo" aria-labelledby="projeto-title">
+      <h2 id="projeto-title">Projeto Combinacional — Questão Teórica</h2>
+
+      <div class="card">
+        
+
+       
+        <section id="enunciado-projeto">
+    <h2>Enunciado do Projeto</h2>
+
+    <p>
+        1 Uma indústria possui quatro (04) máquinas de alta potência 
+        (<strong>M1, M2, M3, M4</strong>), podendo ser ligadas, no máximo, 
+        duas (02) delas simultaneamente.
+    </p>
+
+    <p>
+        Para uma melhor eficiência do sistema industrial é fundamental 
+        respeitar a seguinte prioridade de funcionamento:
+    </p>
+
+    <ul>
+        <li><strong>M1</strong> tem prioridade sobre <strong>M2</strong>;</li>
+        <li><strong>M2</strong> tem prioridade sobre <strong>M3</strong>;</li>
+        <li><strong>M3</strong> tem prioridade sobre <strong>M4</strong>.</li>
+    </ul>
+
+    <p>
+        Para auxiliar no monitoramento da equipe de produção, faz-se necessário 
+        um painel equipado com dois (02) displays de 7 segmentos para indicar as 
+        duas máquinas que estão em produção no momento, ou indicar 
+        <strong>0 (zero)</strong> quando o sistema estiver parado.
+    </p>
+
+    <p>
+        A empresa <strong>COELN-I</strong> contratou um técnico em Eletrônica 
+        para elaborar, implementar e instalar o projeto de um circuito lógico 
+        responsável por realizar este controle e sinalização no painel.
+    </p>
+
+    <p>Para o desenvolvimento do projeto, pede-se:</p>
+
+    <ol type="a">
+        <li>O diagrama de blocos representando o entendimento do sistema;</li>
+        <li>Tabelas verdade necessárias para implementação;</li>
+        <li>Expressões Booleanas;</li>
+        <li>Mapas K;</li>
+        <li>Simulações;</li>
+        <li>Implementação com circuitos integrados.</li>
+    </ol>
+</section>
+
+        <img src="q1a.jpeg" alt="Enunciado da Questão">
+      </div>
+
+      <div class="card">
+        
+        
+
+        <img src="tabela1.png" alt="Tabela Verdade do Projeto">
+      </div>
+
+      <div class="card">
+        
+        <!-- MAPA DE K PARA M1 -->
+        <img src="m1.jpeg" alt="Mapa de Karnaugh M1">
+
+        <!-- MAPA DE K PARA M2 -->
+        <img src="m2.jpeg" alt="Mapa de Karnaugh M2">
+
+        <!-- MAPA DE K PARA M3 -->
+        <img src="m3.jpeg" alt="Mapa de Karnaugh M3">
+
+        <!-- MAPA DE K PARA M4 -->
+        <img src="m4.jpeg" alt="Mapa de Karnaugh M4">
+      </div>
+
+
+    </section>
+
+
+<section id="questao-2" class="conteudo">
+    <h2>Questão 2 – Projeto de Circuito Combinacional</h2>
+
+    <div class="card">
+        <h3>Enunciado da Questão</h3>
+        <p>
+            Em kits digitais para ensino e aprendizagem em bancadas de laboratórios,
+            é comum encontrar alguns instrumentos de medição, entre eles a "ponta de prova"
+            lógica. A COELN-I contratou uma equipe de técnico em Eletrônica para elaborar
+            uma ponta de prova apresentada na figura abaixo, que corresponde praticamente
+            ao diagrama de blocos do sistema.
+        </p>
+        <p><strong>A partir do diagrama dado, elaborar:</strong></p>
+
+        <ol>
+            <li>Tabela verdade;</li>
+            <li>Expressões lógicas;</li>
+            <li>Mapas K;</li>
+            <li>Simulações.</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h3>Diagrama do Sistema</h3>
+        <p>Aqui será inserido o diagrama lógico da questão.</p>
+
+       
+        <img src="DIAGRAMA.jpeg" alt="Diagrama da Questão 2">
+    </div>
+
+    <div class="card">
+        <h3>Tabela Verdade e Expressões Lógicas</h3>
+
+
+        <img src="q2.jpeg" alt="Tabela verdade e expressões">
+    </div>
+
+</section>
+
+
+<section id="questao-3" class="conteudo">
+    <h2>Questão 3 – Projeto de Decodificador para IHM</h2>
+
+    <div class="card">
+        <h3>Enunciado da Questão</h3>
+
+        <p>
+            Um técnico projetou um sistema digital com tecnologia CMOS para controlar
+            a temperatura de uma estufa. O acionamento do sistema é feito via teclado, 
+            o qual possui as seguintes teclas de funções:
+        </p>
+
+        <ul>
+            <li><strong>Tecla 1 →</strong> Bloquear o sistema de aquecimento</li>
+            <li><strong>Tecla 2 →</strong> Aumentar a temperatura</li>
+            <li><strong>Tecla 3 →</strong> Diminuir a temperatura</li>
+            <li><strong>Tecla 4 →</strong> Estabilizar a temperatura</li>
+        </ul>
+
+        <p>
+            Como os operadores estavam reclamando que o sistema não possuía um 
+            sinalizador de função, um estagiário de Eletrônica propôs a seguinte solução:
+        </p>
+
+        <p>
+            Projetar um subsistema de IHM (Interface Homem–Máquina), que consiste em 
+            desenvolver um decodificador para um display de 7 segmentos cátodo comum, 
+            para indicar qual operação está sendo executada através dos seguintes sinais:
+        </p>
+
+        <ul>
+            <li><strong>Tecla 1 →</strong> Bloquear o sistema de aquecimento → <strong>b</strong></li>
+            <li><strong>Tecla 2 →</strong> Aumentar a temperatura → <strong>A</strong></li>
+            <li><strong>Tecla 3 →</strong> Diminuir a temperatura → <strong>d</strong></li>
+            <li><strong>Tecla 4 →</strong> Estabilizar a temperatura → <strong>E</strong></li>
+        </ul>
+
+        <p><strong>Observação:</strong> Quando uma tecla é acionada, ela permanece ativada até que outra tecla seja pressionada.</p>
+    </div>
+
+    <div class="card">
+        <h3>Resolução da Questão</h3>
+        <p>
+            A imagem abaixo corresponde ao desenvolvimento da tabela verdade, 
+            expressões lógicas e estrutura do decodificador para exibir as letras 
+            <strong>b, A, d, E</strong> no display de 7 segmentos.
+        </p>
+
+        <img src="q3.jpeg" alt="Resolução da Questão 3">
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+    <section id="galeria" class="conteudo" aria-labelledby="galeria-title">
+      <h2 id="galeria-title">Galeria e materiais visuais</h2>
+
+      <div class="imagens-area">
+        <figure class="imagem-bloco">
+          <img src="modulo.webp" alt="Kit didático">
+          <figcaption>Kit Zilocchi utilizado nas práticas.</figcaption>
+        </figure>
+
+        <figure class="imagem-bloco">
+          <img src="DISPLAY.png" alt="TinkerCAD">
+          <figcaption>Simulação do decodificador no TinkerCAD.</figcaption>
+        </figure>
+
+        <figure class="imagem-bloco">
+          <img src="SEG.webp" alt="Display">
+          <figcaption>Display de 7 segmentos.</figcaption>
+        </figure>
+
+        <figure class="imagem-bloco">
+          <img src="ATIVIDADE PRÁTICA.jpeg" alt="ATIVIDADE PRÁTICA">
+          <figcaption>ATIVIDADE PRÁTICA.</figcaption>
+        </figure>
+
+      
+      </div>
+    </section>
+
+
+
+    <section id="metodologia" class="conteudo">
+     <div class="card">
+      <h2>Metodologia</h2>
+
+      <p>As atividades foram divididas em:</p>
+      <ul>
+        <li>Decodificador de 7 segmentos</li>
+        <li>Comparadores Digitais</li>
+        <li>Circuitos Aritméticos</li>
+        <li>Projetos De Circuitos Combinacionais</li>
+      </ul>
+      </div>
+    </section>
+
+
+
+    <section id="passo-a-passo" class="conteudo">
+      <h2>Passo a passo</h2>
+
+      <div class="card">
+        <h3>Decodificador de 7 segmentos</h3>
+        <ol>
+          <li>Identificar tipo de display</li>
+          <li>Gerar tabela verdade</li>
+          <li>Montar mapas de Karnaugh</li>
+          <li>Implementar funções</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Comparadores digitais</h3>
+        <ol>
+          <li>Experimentar portas NAND, NOT</li>
+          <li>Testar 74LS85</li>
+          <li>Preencher tabelas verdade</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Projeto combinacional</h3>
+        <ol>
+          <li>Interpretar a tabela verdade</li>
+          <li>Montar K-maps</li>
+          <li>Simplificar funções</li>
+        </ol>
+      </div>
+          <div class="card">
+        <h3>Circuitos Aritméticos – Meio Somador e Meio Subtrator</h3>
+        <ol>
+          <li>Estudar as funções lógicas de Soma (S) e Carry (C)</li>
+          <li>Montar a tabela verdade do meio somador</li>
+          <li>Obter as expressões: S = A ⊕ B e C = A · B</li>
+          <li>Analisar o diagrama do meio somador com portas XOR e AND</li>
+          <li>Repetir para o meio subtrator com funções: S = A ⊕ B e C = A' · B</li>
+          <li>Comparar os circuitos e identificar diferenças entre Carry e Borrow</li>
+        </ol>
+      </div>
+
+
+
+
+    <section id="chat">
+      <h2>Tire Sua Dúvida Com O G1</h2>
+
+      <div class="chat-container">
+          <div class="chat-title">CHAT G1</div>
+
+          <div class="chat-window" id="chat-window">
+              <div class="bot-msg">Olá! Como posso ajudar?</div>
+          </div>
+
+          <div class="chat-input">
+              <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+              <button onclick="enviarMensagem()">Enviar</button>
+          </div>
+      </div>
+    </section>
+
+    <script src="chat.js"></script>
+
+
+
+    <footer class="rodape">
+      <p>Instituto Federal De Sergipe - Coeln - Laboratório De Técnicas Digitais</p>
+      <p>2º IELN - G1 - 2025</p>
+      <P>Alunos Responáveis: Adriel Crislan, Alysson Albo, Arthur Mena, Bruno Silva, Daniel Alves, Elton Alexandre, Evaldo Neto, Eduardo Oliveira, Gustavo Feitosa e Fernando Guimarães</P>
+    </footer>
+
+  </main>
+
+</body>
+</html>
