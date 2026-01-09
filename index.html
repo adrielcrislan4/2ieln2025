@@ -41,70 +41,188 @@
   <main>
 
     <section class="conteudo" aria-labelledby="sobre-title">
-      <h2 id="sobre-title">Sobre o site</h2>
+  <h2 id="sobre-title">Sobre o site</h2>
 
-      <p>
-        O objetivo deste projeto é explicar e demonstrar a construção de um <strong>decodificador para display de 7
-        segmentos</strong> utilizando portas lógicas discretas e a ferramenta de mapa de Karnaugh para simplificação
-        das expressões booleanas. O trabalho foi realizado em etapas: estudo teórico, elaboração dos mapas de Karnaugh,
-        simulação no TinkerCAD e experimentação com o kit didático do laboratório.
-      </p>
+  <div class="card">
+    <p>
+      O objetivo deste projeto é explicar e demonstrar a construção de um
+      <strong>decodificador para display de 7 segmentos</strong> utilizando
+      portas lógicas discretas e a ferramenta de mapa de Karnaugh para
+      simplificação das expressões booleanas.
+    </p>
+    <p>
+      O trabalho foi desenvolvido em etapas, envolvendo estudo teórico,
+      elaboração dos mapas de Karnaugh, simulações no TinkerCAD e
+      experimentação prática com o kit didático do laboratório.
+    </p>
+  </div>
 
-      <p>
-        Nas sessões iniciais estudamos o funcionamento físico dos displays de 7 segmentos — como cada segmento
-        (rotulado de a até g) é acionado para formar os numerais de 0 a F — e a diferença entre displays de
-        <em>cátodo comum</em> e <em>ânodo comum</em>. Em seguida, coletamos as tabelas verdade (para BCD → segmentos)
-        e aplicamos mapas de Karnaugh individualmente para cada segmento, produzindo expressões booleanas otimizadas.
-      </p>
+  <div class="card">
+    <p>
+      Nas sessões iniciais do laboratório foi estudado o funcionamento físico
+      dos displays de 7 segmentos, analisando como cada segmento
+      (identificados de <strong>a</strong> até <strong>g</strong>) é acionado
+      para formar os numerais de 0 a F.
+    </p>
+    <p>
+      Também foram abordadas as diferenças entre displays de
+      <em>cátodo comum</em> e <em>ânodo comum</em>, destacando como essa escolha
+      influencia o nível lógico necessário para o acionamento dos segmentos.
+    </p>
+  </div>
 
-      <p>
-         Além do decodificador, o grupo realizou também:
-        <ul>
-          <li>Experimentos práticos com <strong>Comparadores Digitais (1 bit e 4 bits)</strong> usando portas TTL e o CI 74LS85 fora circuitos-aritmeticos como meio subtrator e meio somador;</li>
-          <li>Uma atividade de projetos de circuitos combinacionais com <strong>tabela verdade, simulações</strong> e <strong>mapas de Karnaugh</strong>
-        </ul>
-        As seções adicionadas mais adiante explicam detalhadamente ambos os conjuntos de atividades e disponibilizam locais para inserir as imagens do relatório.
-      </p>
-    </section>
+  <div class="card">
+    <p>
+      Além do decodificador de 7 segmentos, o grupo realizou atividades
+      complementares durante as práticas de laboratório, incluindo:
+    </p>
+    <ul>
+      <li>
+        Experimentos com <strong>comparadores digitais</strong> de 1 bit e 4 bits,
+        utilizando portas lógicas e o CI <strong>74LS85</strong>;
+      </li>
+      <li>
+        Implementação de <strong>circuitos aritméticos</strong>, como meio somador
+        e meio subtrator;
+      </li>
+      <li>
+        Desenvolvimento de <strong>projetos de circuitos combinacionais</strong>
+        com tabelas verdade, mapas de Karnaugh e simulações.
+      </li>
+    </ul>
+    <p>
+      As seções seguintes do site detalham cada uma dessas atividades,
+      apresentando explicações teóricas, imagens dos experimentos e resultados
+      obtidos em laboratório.
+    </p>
+  </div>
+</section>
+
 
     <section class="teoria conteudo" aria-labelledby="teoria-title">
-      <h2 id="teoria-title">Teoria detalhada</h2>
+  <h2 id="teoria-title">Teoria detalhada</h2>
 
-      <h3>Display de 7 segmentos — anatomia e pinagem</h3>
-      <p>
-        O display de 7 segmentos é formado por sete LEDs em formato de barras (segmentos a–g) e, em muitos modelos,
-        um ponto decimal (DP). Existem dois tipos básicos: <em>cátodo comum</em> (todos os cátodos dos LEDs conectados)
-        e <em>ânodo comum</em> (todos os ânodos conectados). A escolha do tipo determina como os drivers/decodificadores
-        deverão acionar os segmentos (saída ativa HIGH ou LOW).
-      </p>
+  <div class="card">
+    <h3>Display de 7 segmentos — anatomia e pinagem</h3>
+    <p>
+      O display de 7 segmentos é formado por sete LEDs em formato de barras (segmentos a–g) e, em muitos modelos,
+      um ponto decimal (DP). Existem dois tipos básicos: <em>cátodo comum</em> e <em>ânodo comum</em>.
+    </p>
+    <p>
+      A escolha do tipo determina como os drivers ou decodificadores deverão acionar os segmentos,
+      podendo a saída ser ativa em nível lógico alto ou baixo.
+    </p>
+    <p>
+      <strong>Pinagem:</strong> varia de acordo com o modelo do display utilizado.
+      No laboratório foram usados componentes compatíveis com o ambiente do TinkerCAD e com o kit didático.
+    </p>
+  </div>
 
-      <p>
-        <strong>Pinagem</strong> varia por modelo; no material do curso usamos exemplares compatíveis com as simulações do TinkerCAD.
-        Consulte as etiquetas do componente no kit para conectar corretamente os pinos comuns (Vcc ou GND conforme o tipo).
-      </p>
+  <div class="card">
+    <h3>Mapas de Karnaugh e simplificação</h3>
+    <p>
+      Para cada segmento do display foi construído um mapa de Karnaugh 4x4,
+      considerando as entradas A, B, C e D (código BCD).
+    </p>
+    <p>
+      O objetivo dos mapas é reduzir o número de termos das expressões booleanas,
+      tornando o circuito mais simples e eficiente.
+    </p>
+  </div>
 
-      <h3>Mapas de Karnaugh e simplificação</h3>
-      <p>
-        Para cada segmento geramos um mapa de Karnaugh 4x4 (entradas A,B,C,D — código BCD) e agrupamos segmentos
-        adjacentes para encontrar coberturas ótimas. Nos mapas priorizamos grupos de 8, 4 e 2 quando possível,
-        reduzindo termos e gerando expressões com menos literais.
-      </p>
+  <div class="card">
+    <h3>Portas lógicas utilizadas</h3>
+    <p>As principais portas lógicas utilizadas no projeto foram:</p>
+    <ul>
+      <li><strong>AND</strong> – responsável pela multiplicação lógica;</li>
+      <li><strong>OR</strong> – responsável pela soma lógica;</li>
+      <li><strong>NOT</strong> – utilizada para inversão de níveis lógicos.</li>
+    </ul>
+   
+    <!-- TABELA VERDADE DO DECODIFICADOR -->
+<div class="card">
+  <h3>Tabela Verdade – Decodificador BCD para Display de 7 Segmentos</h3>
+  <p>
+    A tabela verdade abaixo relaciona as entradas binárias BCD (A, B, C e D)
+    com o acionamento dos segmentos (a até g) do display de 7 segmentos
+    cátodo comum, permitindo a exibição dos numerais de 0 a 9.
+  </p>
+  <p>Fonte: https://blogdoteta.wordpress.com/2009/07/18/exercicio-2-de-eletronica-digital-decodificador-para-display-7-segmentos-post-do-leitor/</p>
 
-      <h3>Portas lógicas utilizadas</h3>
-      <p>
-        As portas básicas usadas na implementação são:
-      </p>
-      <ul>
-        <li><strong>AND</strong> — combinação de condições (produto lógico)</li>
-        <li><strong>OR</strong> — soma lógica de termos</li>
-        <li><strong>NOT</strong> — inversão de sinal</li>
-      </ul>
+  <img src="tabela-verdade-catodo.jpg"
+       alt="Tabela Verdade do Decodificador de 7 Segmentos">
+</div>
 
-      <p>
-        Ademais, para os <strong>comparadores digitais</strong> (atividade prática) usamos TTL da família 74LS:
-        NAND (74LS00), Inversores (74LS04 ou 74LS14) e o comparador de magnitude 74LS85 para as comparações de 4 bits.
-      </p>
-    </section>
+<!-- MAPAS DE KARNAUGH -->
+<div class="card">
+  <h3>Mapas de Karnaugh – Segmentos do Display</h3>
+  <p>
+    Para cada segmento do display de 7 segmentos foi elaborado um mapa de
+    Karnaugh 4x4, considerando as entradas A, B, C e D. A partir desses mapas,
+    foram obtidas expressões booleanas simplificadas.
+  </p>
+
+  <h4>Segmento A</h4>
+  <img src="sega.jpeg" alt="Mapa de Karnaugh do Segmento A">
+
+  <h4>Segmento B</h4>
+  <img src="segb.jpeg" alt="Mapa de Karnaugh do Segmento B">
+
+  <h4>Segmento C</h4>
+  <img src="segc.jpeg" alt="Mapa de Karnaugh do Segmento C">
+
+  <h4>Segmento D</h4>
+  <img src="segd.jpeg" alt="Mapa de Karnaugh do Segmento D">
+
+  <h4>Segmento E</h4>
+  <img src="sege.jpeg" alt="Mapa de Karnaugh do Segmento E">
+
+  <h4>Segmento F</h4>
+  <img src="segf.jpeg" alt="Mapa de Karnaugh do Segmento F">
+
+  <h4>Segmento G</h4>
+  <img src="segg.jpeg" alt="Mapa de Karnaugh do Segmento G">
+</div>
+
+<!-- CIRCUITOS LÓGICOS -->
+<div class="card">
+  <h3>Circuitos Lógicos dos Segmentos</h3>
+  <p>
+    A partir das expressões booleanas obtidas pelos mapas de Karnaugh,
+    foram implementados os circuitos lógicos de cada segmento utilizando
+    portas AND, OR e NOT.
+  </p>
+
+  <h4>Circuito do Segmento A</h4>
+  <img src="csega.jpeg" alt="Circuito lógico do segmento A">
+
+  <h4>Circuito do Segmento B</h4>
+  <img src="csegb.jpeg" alt="Circuito lógico do segmento B">
+
+  <h4>Circuito do Segmento C</h4>
+  <img src="csegc.jpeg" alt="Circuito lógico do segmento C">
+
+  <h4>Circuito do Segmento D</h4>
+  <img src="csegd.jpeg" alt="Circuito lógico do segmento D">
+
+  <h4>Circuito do Segmento E</h4>
+  <img src="csege.jpeg" alt="Circuito lógico do segmento E">
+
+  <h4>Circuito do Segmento F</h4>
+  <img src="csegf.jpeg" alt="Circuito lógico do segmento F">
+
+  <h4>Circuito do Segmento G</h4>
+  <img src="csegg.jpeg" alt="Circuito lógico do segmento G">
+</div>
+
+   
+    <p>
+      Nos experimentos com comparadores digitais também foram utilizados
+      circuitos integrados da família TTL, como o 74LS00, 74LS04 e o 74LS85.
+    </p>
+  </div>
+</section>
+
 
     
     
