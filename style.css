@@ -221,3 +221,36 @@ footer {
     margin-top: 25px;
     color: #007a3d;
 }
+
+/* --- Correção de scroll lateral no celular --- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Garante que nenhuma imagem ultrapasse a tela */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajuste extra para imagens dentro de cards */
+.card img {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Ajustes específicos para telas pequenas */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    .imagem-bloco {
+        width: 100%;
+    }
+
+    .chat-container {
+        width: 100%;
+    }
+}
