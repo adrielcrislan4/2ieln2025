@@ -276,3 +276,38 @@ img {
     width: 45px;
   }
 }
+
+.sumario {
+  background-color: #e6f2ec;
+  padding: 10px 20px;
+}
+
+.sumario ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.sumario a {
+  text-decoration: none;
+  color: #0a7a3c;
+  font-weight: bold;
+}
+
+.sumario a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .sumario ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
