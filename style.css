@@ -255,27 +255,42 @@ img {
     }
 }
 
-/* TOPO DO SITE */
 .topo {
-  background-color: #0a7a3c; /* verde IF */
-  display: flex;
+  background-color: #0a7a3c;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 10px 20px;
 }
 
-/* LOGO DO IF */
+/* LOGO À ESQUERDA */
+.topo-esquerda {
+  display: flex;
+  align-items: center;
+}
+
 .logo-if {
   width: 60px;
   height: auto;
-  margin-right: 15px;
 }
 
-/* AJUSTE PARA CELULAR */
-@media (max-width: 480px) {
+/* TÍTULO CENTRALIZADO DE VERDADE */
+.topo-centro {
+  text-align: center;
+}
+
+.topo-centro h1 {
+  margin: 0;
+  color: white;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
   .logo-if {
     width: 45px;
   }
 }
+
 
 .sumario {
   background-color: #e6f2ec;
