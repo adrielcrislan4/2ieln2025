@@ -254,3 +254,25 @@ img {
         width: 100%;
     }
 }
+
+/* TOPO DO SITE */
+.topo {
+  background-color: #0a7a3c; /* verde IF */
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* LOGO DO IF */
+.logo-if {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+/* AJUSTE PARA CELULAR */
+@media (max-width: 480px) {
+  .logo-if {
+    width: 45px;
+  }
+}
